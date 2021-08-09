@@ -1,0 +1,23 @@
+.MainScreen {
+  height: 100%;
+
+  .tap {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    color: #d1cfcf;
+    pointer-events: none;
+  }
+
+  img {
+    width: 70%;
+    max-width: 300px;
+  }
+
+  #myCanvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
