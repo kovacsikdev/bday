@@ -276,24 +276,24 @@
     return canvas;
   }
 
-  function ellipse(
-    context,
-    x,
-    y,
-    radiusX,
-    radiusY,
-    rotation,
-    startAngle,
-    endAngle,
-    antiClockwise,
-  ) {
-    context.save();
-    context.translate(x, y);
-    context.rotate(rotation);
-    context.scale(radiusX, radiusY);
-    context.arc(0, 0, 1, startAngle, endAngle, antiClockwise);
-    context.restore();
-  }
+  // function ellipse(
+  //   context,
+  //   x,
+  //   y,
+  //   radiusX,
+  //   radiusY,
+  //   rotation,
+  //   startAngle,
+  //   endAngle,
+  //   antiClockwise,
+  // ) {
+  //   context.save();
+  //   context.translate(x, y);
+  //   context.rotate(rotation);
+  //   context.scale(radiusX, radiusY);
+  //   context.arc(0, 0, 1, startAngle, endAngle, antiClockwise);
+  //   context.restore();
+  // }
 
   function randomPhysics(opts) {
     var radAngle = opts.angle * (Math.PI / 180);
