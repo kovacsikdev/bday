@@ -1,5 +1,5 @@
 import React from 'react';
-import confetti from 'canvas-confetti';
+import confetti from '../lib/confetti.js';
 import pic from '../assets/profile_pic.jpg';
 import './MainScreen.scss';
 
