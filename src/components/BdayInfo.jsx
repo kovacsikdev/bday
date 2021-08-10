@@ -24,21 +24,24 @@ export const BdayInfo = () => {
       </div>
       <div>
         <h3>Notes</h3>
-        <div>
-          It's a surprise party for Lisa's 60th Birthday. We will have lots of
-          food and drinks. Lisa will be out of the house until{' '}
-          <strong>1:15</strong> so arrive before then and park down the street
-          so she does not figure it out. Please let us know if you can come.
-          Text or email Charlie or Summer.
-        </div>
+        <ul>
+          <li>It's a surprise party for Lisa's 60th birthday.</li>
+          <li>We will have lots of food and drinks.</li>
+          <li>
+            Lisa will be out of the house until <strong>1:15</strong> so arrive
+            before then and park down the street so she does not figure it out.
+          </li>
+          <li>
+            Please let us know if you can come. Text or email Charlie or Summer.
+          </li>
+        </ul>
         <h4>Charlie</h4>
         <ul>
           <li>
             Phone: <a href="tel:480-510-4697">480-510-4697</a>
           </li>
           <li>
-            Email:{' '}
-            <a href="mailto:vernongirl61@gmail.com">vernongirl61@gmail.com</a>
+            Email: <a href="mailto:vernongirl61@gmail.com">vernongirl61@gmail.com</a>
           </li>
         </ul>
         <h4>Summer</h4>
