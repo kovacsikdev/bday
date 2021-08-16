@@ -1,5 +1,4 @@
-import React from 'react';
-import './BdayInfo.scss';
+import "./BdayInfo.scss";
 
 export const BdayInfo = () => {
   return (
@@ -27,7 +26,7 @@ export const BdayInfo = () => {
         <ul>
           <li>
             It's a surprise party for Lisa's 60th birthday. We will have lots of
-            food and drinks. Lisa will be out of the house until{' '}
+            food and drinks. Lisa will be out of the house until{" "}
             <strong>1:15</strong> so arrive before then and park down the street
             so she does not figure it out. Please let us know if you can come.
             Text or email Charlie or Summer.
@@ -39,7 +38,7 @@ export const BdayInfo = () => {
             Phone: <a href="tel:480-510-4697">480-510-4697</a>
           </li>
           <li>
-            Email:{' '}
+            Email:{" "}
             <a href="mailto:vernongirl61@gmail.com">vernongirl61@gmail.com</a>
           </li>
         </ul>

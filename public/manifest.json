@@ -1,7 +1,6 @@
 {
   "short_name": "Lisa birthday",
   "name": "Birthday party for Lisa",
-  "scope": "/bday/",
   "orientation": "portrait-primary",
   "icons": [
     {

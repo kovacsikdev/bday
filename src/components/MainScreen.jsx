@@ -1,53 +1,76 @@
-import React from 'react';
-import confetti from '../lib/confetti.js';
-import pic from '../assets/profile_pic.png';
-import './MainScreen.scss';
+// import React from 'react';
+import { createSignal, onMount, onCleanup } from "solid-js";
+import pic from "../assets/profile_pic.png";
+import "./MainScreen.scss";
 
-import { BdayInfo } from './BdayInfo';
+import { BdayInfo } from "./BdayInfo";
 
 export const MainScreen = () => {
-  const randomInRange = (min, max) => {
-    return Math.random() * (max - min) + min;
-  };
-
-  React.useEffect(() => {
-    // https://github.com/catdad/canvas-confetti
-    const myCanvas = document.getElementById('myCanvas');
-    const myConfetti = confetti.create(myCanvas, {
-      resize: true,
-    });
+  onMount(() => {
+    const myCanvas = document.getElementById("myCanvas");
+    const ctx = myCanvas.getContext("2d");
 
     const resizeCanvas = () => {
       myCanvas.width = window.innerWidth;
       myCanvas.height = window.innerHeight;
     };
+    resizeCanvas();
 
-    const throwConfetti = () => {
-      myConfetti({
-        particleCount: 1,
-        startVelocity: 0,
-        angle: 270,
-        ticks: 60,
-        origin: {
-          x: Math.random(),
-          y: 0,
-        },
-        colors: ['#666666'],
-        shapes: ['circle'],
-        gravity: 0.95,
-        drift: randomInRange(-0.4, 0.4),
-      });
+    let newPos = 0;
+    const height = 200;
 
-      setTimeout(() => {
-        window.requestAnimationFrame(throwConfetti);
-      }, 250);
+    function AgeNum(xPos, yPos) {
+      this.xPos = xPos;
+      this.yPos = yPos;
+    }
+
+    AgeNum.prototype.update = function () {
+      if (this.yPos >= height) {
+        this.yPos = newPos;
+      } else {
+        this.yPos += 1;
+      }
+
+      if (this.yPos > 0 && this.yPos < height) {
+        ctx.fillStyle = `rgba(183,110,121,${(height - this.yPos) * 0.01})`;
+      } else {
+        ctx.fillStyle = `rgba(0,0,0,0)`;
+      }
+
+      ctx.font = "48px sans-serif";
+
+      ctx.fillText(
+        "60!",
+        myCanvas.width - myCanvas.width * this.xPos,
+        this.yPos
+      );
+      // ctx.fillText(
+      //   "60!",
+      //   myCanvas.width - myCanvas.width * this.xPos + 40,
+      //   this.yPos + 40
+      // );
     };
 
-    window.addEventListener('resize', resizeCanvas, false);
+    const numbers = [];
+    const count = 6;
+    for (let i = 0; i < count; i++) {
+      numbers.push(
+        new AgeNum(i / count + 0.1, Math.floor(Math.random() * -height - 150))
+      );
+    }
 
-    resizeCanvas();
-    throwConfetti();
-  }, []);
+    const draw = () => {
+      ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+      for (let i = 0; i < numbers.length; i++) {
+        numbers[i].update();
+      }
+      window.requestAnimationFrame(draw);
+    };
+
+    window.addEventListener("resize", resizeCanvas, false);
+
+    draw();
+  });
 
   return (
     <div className="MainScreen">
